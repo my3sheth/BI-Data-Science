@@ -1,0 +1,26 @@
+class Bank:
+    def __init__(self,balance=50000):
+        self._balance=balance
+
+    def deposit(self,amount):
+        self._balance+=amount
+        return(self._balance)
+    
+    def withdraw(self,amount):
+        if amount > self._balance:
+            return ("Insufficient funds, cannot withdraw the stated amount.")
+        else:
+            self._balance-=amount
+            return (self._balance)
+    
+    @property
+    def balance(self):
+        return (self._balance)
+
+acc1 = Bank()
+
+print("Initial balance:", acc1.balance)
+
+print(acc1.deposit(2000))
+print(acc1.withdraw(1000))
+print("Final balance:", acc1.balance)
